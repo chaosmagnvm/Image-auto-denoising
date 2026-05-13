@@ -38,7 +38,7 @@ def denoiser_snp(img, std):
      return denoised
 
 
-def deblur(img, b, auto):
+def deblur(img, b, auto=1):
 
     def gaussian_psf(shape, sigma, k=0):
         h, w = shape
