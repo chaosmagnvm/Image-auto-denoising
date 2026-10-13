@@ -1,1 +1,2 @@
-Image auto-denoising and deblur. Uses CBSD68 dataset.
+Image auto-denoising. Uses CBSD68 dataset:
+https://github.com/clausmichele/CBSD68-dataset/tree/master
