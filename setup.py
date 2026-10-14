@@ -1,8 +1,7 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
-    name="dss",
-    version="0.1",
-    packages=find_packages(where="src"),
+    name="aesmi",
     package_dir={"": "src"},
+    py_modules=["aesmi"],
 )
