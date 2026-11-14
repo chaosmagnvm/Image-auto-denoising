@@ -306,7 +306,7 @@ def denoiser_gaussian(img, std):
 def denoiser_snp(img, std):
      
      k = 3
-     # code
+     
      if std > 30:
           k = 5
 
@@ -402,37 +402,3 @@ def snp_noise(img, p = 0.05):
         tmp[black_idx] = 0
         tmp = tmp.reshape(h, w, 3)
         return tmp
-
-
-def denoise(img):
-
-    ret = img.copy()
-
-    def decide_gaussian(g0, s0):
-         
-        if g0 <= 10:
-            return -1
-          
-        tmp_g = denoiser_gaussian(img, g0)
-        g_g = gaussian_noise_detector(tmp_g)
-        g_s = snp_noise_detector(tmp_g)
-        
-        if g_g > g0 * (2/3) or g_s > s0 * (2/3):
-             return -1
-        
-        return 1
-
-
-    def decide_snp(g0, s0):
-         
-        if s0 <= 1:
-            return -1
-         
-        tmp_s = denoiser_snp(img, s0)
-        s_s = snp_noise_detector(tmp_s)
-        s_g = gaussian_noise_detector(tmp_s)
-
-        if s_s > s0/10 or s_s > s0/10: ## in progress
-             return -1
-        
-        return 1
